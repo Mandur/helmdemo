@@ -11,6 +11,7 @@ The goal of these exercices is to give more experience about helm and Kubernetes
 Run the two below commands and don’t forget to add the result to your path:
 
 az aks install-cli
+
 az acr helm install-cli --client-version 3.4.1
 
 On docker desktop, go to setting, Kubernetes, toggle enable Kubernetes.
@@ -18,13 +19,13 @@ On docker desktop, go to setting, Kubernetes, toggle enable Kubernetes.
 # Kubernetes
 ## Experiment with pods
 1. Run a pod with the demo application with the command 
-`kubectl run nginxdemos/hello`
+`kubectl run --image=nginxdemos/hello nginx`
 2. Observe the status of your pods deployment with kubectl get pods or in VS code
 3. Once the pod is ready, get its ip address in VS code or with `kubectl get pods -o wide`
 4. Open your browser and go to the url, observe the website.
 5. Simulate a failure, (Kill the pod) with VS code or with kubectl delete pod hello. Observe that nothing is on the website anymore
 6. Run a new pod with the demo application with the command 
-`kubectl run nginxdemos/hello`
+`kubectl run --image=nginxdemos/hello nginx`
 7. Get the new pod ip address with kubectl get pods -o wide. Observe that the IP adress changed.
 8. Observe that everything in Kubernetes is in yaml by writing `kubectl get pods -o yaml`. You will get the yaml definition of your pod
 
